@@ -29,3 +29,5 @@
 8: Gõ vào trang url 'localhost: 8000'
 ```
 ##### Chúc các bạn thành công 😁
+
+[Xem hướng dẫn ](https://nguyenvanduydev001.github.io/minimaket/)
