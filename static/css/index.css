@@ -1,0 +1,57 @@
+body{
+  overflow-x: hidden;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    /* background-color: #2196F3; */
+    padding: 10px;
+    
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 20px;
+    font-size: 30px;
+    /* text-align: center; */
+  }
+
+  .mkbox{
+    background-image: url(./../img/offer.jpg);
+    height:400px;
+    width: 100%;
+    background-size: cover;
+  }
+
+  ::-webkit-scrollbar{
+
+    width: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb{
+    
+    background-image: linear-gradient(#2196F3,green);
+   
+      border-radius: 20px;
+  }
+
+/* Footer styling */
+footer {
+  text-align: center;
+  padding-top: 10px;
+  background-color: #f8f9fa;
+  margin-top: 50px;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer a {
+  color: #333;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

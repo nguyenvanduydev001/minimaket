@@ -1,0 +1,57 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'core/css/header.css' %}">
+
+<div class="div edit bg-primary ">
+
+
+    <h1 class=" text-white mx-3 mini">
+        <i class="fas fa-shopping-cart edit-header mx-1"></i><span class="text-warning">M</span>ini<span class="text-warning">M</span>arket
+      </h1>
+
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container-fluid">
+              {% comment %} <a class="navbar-brand" href="#">Navbar</a> {% endcomment %}
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/"><i class="fas fa-home"></i> Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/market/vegs"> <i class="fas fa-shopping-basket"></i> Grocery store</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href='/market/groc'> <i class="fas fa-carrot"></i> Vegetable</a>
+                  </li>
+                  {% comment %} <li class="nav-item">
+                    <a class="nav-link "><i class="fas fa-percent"></i></i> Offers</a>
+                  </li> {% endcomment %}
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user"></i>
+                      {{userdata.uname}}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="{{userdata.o1link}}"> {{userdata.o1}}</a></li>
+                      {% comment %} <li><a class="dropdown-item" href="{{userdata.o2link}}">{{userdata.o2}}</a></li> {% endcomment %}
+                   
+                      {% if userdata.o3 %}
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="{{userdata.o3link}}">{{userdata.o3}}</a></li>
+                      {% endif %}
+                    </ul>
+                  </li>
+               
+                </ul>
+                {% comment %} <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> {% endcomment %}
+              </div>
+            </div>
+          </nav>
+</div>

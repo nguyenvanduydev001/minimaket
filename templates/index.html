@@ -1,0 +1,124 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}MiniMarket{% endblock title %}
+
+{% block link %}
+{{block.super}}
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock link %}
+
+
+{% block content %}
+
+{% include 'core/header.html' with p=userdata  %}
+{% comment %} {% if messages %}
+{% for k in messages %} 
+
+<div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+    <strong>{{k}}</strong>
+    
+   
+  </div> 
+
+
+{% endfor %}
+{% endif %} {% endcomment %}
+{% comment %} images for carasoul {% endcomment %}
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="{% static 'img/u1.jpg'%}" class="d-block w-100" alt="..." height="500px">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+
+        <img src="{% static 'img/u2.jpg'%}" class="d-block w-100" alt="..." height="500px">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/u3.jpg'%}" class="d-block w-100" alt="..." height="500px">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'img/u4.jpg'%}" class="d-block w-100" alt="..." height="500px">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="container-fluid mt-3 grid-container mx-4">
+
+{% if vegitables %}
+
+{% for i in vegitables %}
+
+
+
+
+    <div class="card mt-3" style="width: 18rem;">
+      <img class="card-img-top sabji" src="{% static i.gimg %}" alt="Card image cap" height= 200px>
+      <div class="card-body alert-success">
+        <h5 class="card-title">{{i.gname}}</h5>
+        <p class="card-text">  
+          <Strong>$ {{i.gprice}} /{{i.gamm}} </strong>      {{i.ginfo}}</p>
+        <a href="/user/buysingle/{{i.id}}/groc" class="btn btn-outline-success">Buy Now</a>
+        <a href="/user/mycart/{{i.id}}/{{i.gprice}}/{{i.gname}}/"  class="btn btn-outline-dark"> <i class="fas fa-shopping-cart"></i> Cart</a>
+      </div>
+    </div>
+ 
+
+
+
+{% endfor %}
+
+{% else %}
+<h1 >Sorry No Data</h1>
+{% endif %}    
+
+  </div>
+
+
+  <div class="container-fluid mt-2 mkbox"  height= 300px>
+
+
+  </div>
+
+
+  <div class="container-fluid mt-3 grid-container mx-4">
+
+    {% if grocery %}
+    
+    {% for i in grocery %}
+    
+    
+    
+    
+        <div class="card mt-3" style="width: 18rem;">
+          <img class="card-img-top sabji" src="{% static i.vimg %}" alt="Card image cap" height= 200px>
+          <div class="card-body alert-success">
+            <h5 class="card-title">{{i.vname}}</h5>
+            <p class="card-text">  
+              <Strong>$ {{i.vprice}} /{{i.vamm}} </strong>      {{i.vinfo}}</p>
+            <a href="/user/buysingle/{{i.id}}/{{veg|default:'veg'}}" class="btn btn-outline-success">Buy Now</a>
+            <a href="/user/mycart/{{i.id}}/{{i.vprice}}/{{i.vname}}" class="btn btn-outline-dark"> <i class="fas fa-shopping-cart"></i> Cart</a>
+          </div>
+        </div>
+     
+    
+    
+    
+    {% endfor %}
+    
+    {% else %}
+    <h1 >Sorry No Data</h1>
+    {% endif %}    
+    
+      </div>
+
+      <footer><p class="p-footer">Copyright © 2024 MiniMarket</p></footer>
+{% endblock content %}
